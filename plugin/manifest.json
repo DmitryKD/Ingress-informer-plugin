@@ -1,0 +1,40 @@
+﻿{
+    "name": "i_i",
+    "description": "Ingress test bot",
+    "permissions": [ //access to url
+        "cookies",
+        "https://www.ingress.com/*",
+        "https://*/*",
+        "storage",
+        "unlimited_storage",
+        "tabs"
+    ],
+    "version": "0.0.0.11",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "icon16.png", //icon extension
+        "default_title": "Open bot settings",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "page": "popup.html",
+        "persistent": true
+    },
+    "content_scripts": [{
+        "js": [
+            "jquery-min.js",
+            "work.js",
+            "handler.js",
+            "extra.js"
+        ],
+        "matches": ["http://*/*", "https://*/*"] //acces to data for scripts
+    }],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "icons": { //icons
+        "16": "icon16.png"
+    },
+    "web_accessible_resources": [
+        "icon16.png",
+        "jquery-min.js"
+    ]
+}
